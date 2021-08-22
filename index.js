@@ -78,6 +78,12 @@ client.connect(err => {
             .then(result => { res.send(result.deletedCount > 0) })
     })
 
+    // admin
+    app.post('/isAdmin', (req, res) => {
+        Admin.find({ email: req.body.email })
+            .toArray((err, admin) => { res.send(admin.length > 0) })
+    })
+
     //makeAdmin
     app.get('/makeAdmin', (req, res) => {
         Admin.insertOne(req.body)
@@ -87,7 +93,7 @@ client.connect(err => {
     // getAdmin
     app.get('/getAdmin', (req, res) => {
         Admin.findOne(req.params.id)
-            .toArray((err, documents) => { res.send(documents) })
+            .toArray((err, admin) => { res.send(admin) })
     })
 
 });
