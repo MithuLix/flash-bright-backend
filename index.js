@@ -35,6 +35,7 @@ client.connect(err => {
 
     // get services by id
     app.get('/getServices/:id', (req, res) => {
+        console.log(req.params.id);
         Services.find({ _id: ObjectId(req.params.id) })
             .toArray((err, documents) => { res.send(documents[0]) })
     })
@@ -48,10 +49,9 @@ client.connect(err => {
 
     // show Booking
     app.get('/getBookingList', (req, res) => {
-        Orders.find({ email: req.body.email })
+        Orders.find({ email: req.query.email })
             .toArray((err, documents) => { res.send(documents) })
     })
-
 
     // Admin panel
     // All Orders
