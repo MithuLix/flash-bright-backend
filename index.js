@@ -11,11 +11,11 @@ const port = 5000;
 const objectId = require('mongodb').ObjectId;
 const MongoClient = require('mongodb').MongoClient;
 const { ObjectId } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.0xs55.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.tbdbuji.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // db connection checking
-app.get("/", function (req, res) { res.send("Flash-bright database connected"); })
+app.get("/", function (req, res) { res.send("------------->> Flash-bright database connected  <<-------------"); })
 
 //DB connection between client-server
 client.connect(err => {
